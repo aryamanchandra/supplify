@@ -1,12 +1,22 @@
 package models
 
 import (
-	"gopkg.in/mgo.v2/bson"
+	"time"
+
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type User struct {
-	Id     bson.ObjectId `json:"id" bson:"_id"`
-	Name   string        `json:"name" bson:"name"`
-	Gender string        `json:"gender" bson:"gender"`
-	Age    int           `json:"age" bson:"age"`
+	ID            primitive.ObjectID `bson:"_id"`
+	First_name    *string            `json:"first_name" validate:"required, min=2, max=100"`
+	Last_name     *string            `json:"last_name" validate:"required, min=2, max=100"`
+	Password      *string            `json:"password" validate:"required, min=6"`
+	Email         *string            `json:"email" validate:"required, email"`
+	Phone         *string            `json:"phone" validate:"required"`
+	Token         *string            `json:"token"`
+	User_type     *string            `json:"user_type" validate:"required, eq=ADMIN | eq=BUYER | eq=SELLER | eq=BRAND"`
+	Refresh_token *string            `json:"refresh_token"`
+	Created_at    time.Time          `json:"created_at"`
+	Updated_at    time.Time          `json:"updated_at"`
+	User_id       *string            `json:"user_id"`
 }
