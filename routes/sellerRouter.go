@@ -1,8 +1,7 @@
 package routes
 
 import (
-	controllers "supplify/controllers"
-
+	controllers "github.com/aryamanchandra/supplify/controllers"
 	middleware "github.com/aryamanchandra/supplify/middleware"
 	"github.com/gin-gonic/gin"
 )
