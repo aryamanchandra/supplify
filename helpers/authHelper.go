@@ -28,3 +28,7 @@ func UserVerify(c *gin.Context, userId string) (err error) {
 	err = TypeVerify(c, userType)
 	return err
 }
+
+func GenerateTokens(c *gin.Context) bool {
+	return true
+}
